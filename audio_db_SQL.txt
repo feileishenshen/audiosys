@@ -1,0 +1,104 @@
+-- Database: audio_db
+
+-- DROP DATABASE audio_db;
+
+CREATE DATABASE audio_db
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Chinese (Simplified)_China.936'
+       LC_CTYPE = 'Chinese (Simplified)_China.936'
+       CONNECTION LIMIT = -1;
+
+-- Table: "Audio"
+
+-- DROP TABLE "Audio";
+
+CREATE TABLE "Audio"
+(
+  audio_id character varying(10) NOT NULL,
+  audio_name character varying(16)[],
+  audio_uploader character(10),
+  category_id integer,
+  audit_status character(16)[], -- 审核状态
+  audio_zan integer[],
+  audio_photo character varying(128)[],
+  audio_uptime time with time zone,
+  audio_info character varying(300)[], -- 音频描述
+  sort_id integer, -- 分类号
+  CONSTRAINT "audio主键" PRIMARY KEY (audio_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Audio"
+  OWNER TO postgres;
+COMMENT ON COLUMN "Audio".audit_status IS '审核状态';
+COMMENT ON COLUMN "Audio".audio_info IS '音频描述';
+COMMENT ON COLUMN "Audio".sort_id IS '分类号';
+
+-- Table: "Comment"
+
+-- DROP TABLE "Comment";
+
+CREATE TABLE "Comment"
+(
+
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Comment"
+  OWNER TO postgres;
+
+  -- Table: "Level"
+
+-- DROP TABLE "Level";
+
+CREATE TABLE "Level"
+(
+  level_id integer NOT NULL,
+  level_name character(16),
+  CONSTRAINT "level主键" PRIMARY KEY (level_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Level"
+  OWNER TO postgres;
+
+  -- Table: "Sort"
+
+-- DROP TABLE "Sort";
+
+CREATE TABLE "Sort"
+(
+  sort_id integer NOT NULL,
+  sort_name character varying(16)[],
+  sort_num integer[],
+  CONSTRAINT "sort主键" PRIMARY KEY (sort_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Sort"
+  OWNER TO postgres;
+
+  -- Table: "User"
+
+-- DROP TABLE "User";
+
+CREATE TABLE "User"
+(
+  user_id character(10) NOT NULL,
+  user_mail character varying(32)[],
+  user_psw character varying(16)[],
+  level_id integer,
+  user_photo character varying(128)[],
+  CONSTRAINT "主键" PRIMARY KEY (user_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "User"
+  OWNER TO postgres;
