@@ -1,0 +1,56 @@
+﻿    <style type="text/css">
+        body {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        a {
+            color: black;
+            list-style: none;
+        }
+
+            a:hover {
+                color: #e23636;
+                text-decoration: none;
+            }
+
+        #head {
+            background-color: #efeded;
+            height: 60px;
+            width:100%;
+        }
+
+            #head .logo {
+                margin-left: 15%;
+                padding-top: 5px;
+                float: left;
+                height:50px;
+                width:50px;
+            }
+
+            #head .SiMusic {
+                text-align: center;
+                padding-top: 15px;
+                margin-left: 40px;
+                float: left;
+            }
+
+        .SiMusic a {
+            font-size: 20px;
+            font-family: 宋体;
+        }
+
+        #head .login {
+            float: right;
+            margin-right: 14%;
+            padding-top: 20px;
+        }
+        img{         
+            border-radius:20px 20px 20px 20px;
+            overflow:hidden;
+            height:100%;
+             width:100%;
+        }
+
+        #push
+          </style>
